@@ -1,0 +1,41 @@
+** start of script.js **
+
+// Declare global count variable
+let count = 0;
+
+function cc(card) {
+  // Increase count for low cards (2-6)
+  if (card >= 2 && card <= 6) {
+    count++;
+  } 
+  // Decrease count for high cards (10, J, Q, K, A)
+  else if (
+    card === 10 || 
+    card === "J" || 
+    card === "Q" || 
+    card === "K" || 
+    card === "A"
+  ) {
+    count--;
+  }
+  // Cards 7, 8, 9 do not change count — nothing needed
+
+  // Determine Bet or Hold
+  let decision = count > 0 ? "Bet" : "Hold";
+
+  // Return count and decision
+  return count + " " + decision;
+}
+
+// Examples:
+console.log(cc(2));  // 1 Bet
+console.log(cc(3));  // 2 Bet
+console.log(cc(7));  // 2 Bet
+console.log(cc("K")); // 1 Bet
+console.log(cc("A")); // 0 Hold
+
+
+
+
+** end of script.js **
+
